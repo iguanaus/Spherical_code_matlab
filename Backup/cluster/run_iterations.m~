@@ -1,0 +1,9 @@
+valuesToCompute=linspace(40,60,0.5)
+
+myspects = []
+for v = valuesToCompute;
+    spect = run_spectrum(v)
+    myspects = [myspects spect(:,1)]
+end
+csvwrite('test.csv',myspects)
+csvwrite('test_val.csv',valuesToCompute)
