@@ -20,9 +20,10 @@ for r1 = 10.0:1:40.0;
                 end
             end
         end
+    end
     if rem(r1,1) ==0;
-        disp('On');
-        disp(r1);
+       disp('On');
+       disp(r1);
     end
 end
 csvwrite('test_large_fixed_five.csv',myspects);
