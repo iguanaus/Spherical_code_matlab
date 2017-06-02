@@ -17,18 +17,14 @@ for r1 = botlim:2:toplim;
             for r4 = botlim:2:toplim;
                 spect = run_spectrum_dielectric_advanced_four(r1,r2,r3,r4);
                 myspects = [myspects spect(1:5:501,1)];
-                values = [values ; [r1,r2,r3,r4]]; 
+                values = [values ; [r1,r2,r3,r4]];          
             end
-        end
-        if rem(r2,1) ==0;
-            disp('Onr2');
-            disp(r1);
         end
     end
     if rem(r1,1) ==0;
-       disp('Onr1');
+       disp('On');
        disp(r1);
     end
 end
-csvwrite('test_large_fixed_five.csv',myspects);
-csvwrite('test_large_fixed_five_val.csv',values);
+csvwrite('dielectric_spectrums_four.csv',myspects);
+csvwrite('dielectric_spectrums_four_val.csv',values);

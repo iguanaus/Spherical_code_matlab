@@ -12,9 +12,9 @@ eps_water  = 1.77*ones(length(omega), 1);
 % load data on epsilon
 
 % test case one: 40-nm-radius silver sphere in water
-%eps = [eps_silica eps_silicon eps_silica eps_silicon eps_water];
+eps = [eps_silica eps_tio2 eps_silica eps_tio2 eps_water];
 
-eps = [eps_tio2 eps_silica eps_tio2 eps_silica eps_water];
+%eps = [eps_tio2 eps_silica eps_tio2 eps_silica eps_water];
 %eps = [eps_silver eps_silica eps_silver eps_silica eps_silver eps_water];
 a = [r1 r2 r3 r4];
 

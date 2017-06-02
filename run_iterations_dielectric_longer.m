@@ -14,22 +14,22 @@ eps_water  = 1.77*ones(length(omega), 1);
 % load data on epsilon
 
 % test case one: 40-nm-radius silver sphere in water
-%eps = [eps_silver eps_silica eps_silver eps_silica eps_silver eps_water];
+eps = [eps_silver eps_silica eps_silver eps_silica eps_silver eps_silica eps_water];
 
-%listOfRunnings1=[10 15 20 25 30 35]
-%listOfRunnings2=[40 45 50 55 60]
-%listOfRunnings =[10 16 22 28 34 40 46 52 58 64 70 76 82 88 94 100]
-
-listOfRunnings=[10 20]
+listOfRunnings=[1 2 3 5 7 9 13 17 19 20] 
 
 for r1 = listOfRunnings;
     for r2 = listOfRunnings;
         for r3 = listOfRunnings;
-            for r4 = listOfRunnings;
-                orspect = run_spectrum_dielectric_advanced_four(r1,r2,r3,r4);
-                spect = (2*pi)*orspect(1:1:501,1)./(3*lambda.*lambda);
-                myspects = [myspects spect(1:2:501)];
-                values = [values ; [r1,r2,r3,r4]];
+            for r4 = listOfRunnings;  
+                for r5 = listOfRunnings;  
+                    for r6 = listOfRunnings;  
+                        a = [r1 r2 r3 r4 r5 r6];
+                        spectrum = total_cs(a,omega,eps)/(pi*sum(a)^2);
+                        myspects = [myspects spect(1:5:501,1)];
+                        values = [values ; [r1,r2,r3,r4]];   
+                    end
+                end
             end
         end
         if rem(r2,1) ==0;
@@ -42,5 +42,5 @@ for r1 = listOfRunnings;
        disp(r1);
     end
 end
-csvwrite('double_dielectrics.csv',myspects);
-csvwrite('double_dielectrics_val.csv',values);
+csvwrite('dielectric_spectrums_four_temp.csv',myspects);
+csvwrite('dielectric_spectrums_four_temp_val.csv',values);
