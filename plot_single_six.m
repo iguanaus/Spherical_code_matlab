@@ -13,10 +13,10 @@ values = [];
 myspects = [];
 posVals = [10];
 mymaxes = [];
-for v1=[10 50 100];
-    for v2=[10 50 100];
-        for v3=[10 50 100];
-            for v4=[10 50 100];
+for v1=[5 30 50];
+    for v2=[5 30 50];
+        for v3=[5 30 50];
+            for v4=[5 30 50];
                  
                 spect = ((2*pi)*run_spectrum_dielectric_advanced_four(v1,v2,v3,v4)./(3*lambda.*lambda));
                 %spect(1:1:501,1)./(3*lambda.*lambda)*2*pi
